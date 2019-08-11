@@ -1,6 +1,7 @@
 # 非常简单的go延迟操作脚手架
 
 应用场景： 
+
 - 超三分钟未付款取消订单
 - 超十分钟未接单退款等
 
@@ -15,6 +16,12 @@
 ├── README.md  // 说明
 └── server.go  // 服务端
 ```
+
+# Run
+
+`go run server.go`
+
+url `http://{yourhost}/create?orderid=10000`
 
 # 原理
 - 启动一个简单http服务用于被动接收业务

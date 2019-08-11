@@ -1,33 +1,30 @@
 package main
 
 import (
-    "time"
+	"time"
 	"fmt"
 	"net/http"
 )
 
 func main() {
-	// 路由
 	http.HandleFunc("/create", httpOnCreate)
-	// 监听端口+阻塞
 	http.ListenAndServe(":80", nil)
 }
 
 func httpOnCreate(w http.ResponseWriter, r *http.Request) {
 	vars := r.URL.Query();
-	orderid, ok := vars["orderid"];
-	if (ok) {
+	orderid, success := vars["orderid"];
+	if (success) {
 		go sleepExec(orderid);
 	}
 
-	
 	w.Write([]byte("200"))
-	
 }
 
+
 func sleepExec(orderid []string) {
-	// 阻塞
 	time.Sleep(time.Second * 10)
+
 	// 业务逻辑
 	fmt.Println(orderid)
 }
