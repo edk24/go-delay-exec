@@ -10,7 +10,7 @@ func main() {
 	// 路由
 	http.HandleFunc("/create", httpOnCreate)
 	// 监听端口+阻塞
-    http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":80", nil)
 }
 
 func httpOnCreate(w http.ResponseWriter, r *http.Request) {
